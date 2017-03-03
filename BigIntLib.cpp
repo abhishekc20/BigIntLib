@@ -85,9 +85,10 @@ int main(){
 	try{
 		BigInt C = BigInt(); 
 		
-		C = A*B;
-		BigInt D = BigInt();
-		
+        // Mini test case: 1143987589345/13584375 = 84213.4871383
+//		C = A*B;
+		C = A/B;
+        
 		cout<<"C:";
 		C.display();
 		
@@ -532,6 +533,7 @@ BigInt BigInt::divHelper(BigInt divisor, int arg){
 	case 0: return quotient;
 	case 1: return tempDividend; // remainder
 	}
+    return zero;
 }
 
 BigInt BigInt::operator/(BigInt divisor){
@@ -631,100 +633,11 @@ vector<char> myFuncReduce(vector<char> V){
 	V[vSize] = 0;
 	
 	for(long int i=0; i<=vSize; i++){
-		// TODO: optimise.
-		switch((int)V[i]){
-		case 0:V[i] = '0'; break;
-		case 1:V[i] = '1'; break;
-		case 2:V[i] = '2'; break;
-		case 3:V[i] = '3'; break;
-		case 4:V[i] = '4'; break;
-		case 5:V[i] = '5'; break;
-		case 6:V[i] = '6'; break;
-		case 7:V[i] = '7'; break;
-		case 8:V[i] = '8'; break;
-		case 9:V[i] = '9'; break;
-		case 10:V[i]='0';V[i+1]+=1;break;
-		case 11:V[i]='1';V[i+1]+=1;break;
-		case 12:V[i]='2';V[i+1]+=1;break;
-		case 13:V[i]='3';V[i+1]+=1;break;
-		case 14:V[i]='4';V[i+1]+=1;break;
-		case 15:V[i]='5';V[i+1]+=1;break;
-		case 16:V[i]='6';V[i+1]+=1;break;
-		case 17:V[i]='7';V[i+1]+=1;break;
-		case 18:V[i]='8';V[i+1]+=1;break;
-		case 19:V[i]='9';V[i+1]+=1;break;
-		case 20:V[i]='0';V[i+1]+=2;break;
-		case 21:V[i]='1';V[i+1]+=2;break;
-		case 22:V[i]='2';V[i+1]+=2;break;
-		case 23:V[i]='3';V[i+1]+=2;break;
-		case 24:V[i]='4';V[i+1]+=2;break;
-		case 25:V[i]='5';V[i+1]+=2;break;
-		case 26:V[i]='6';V[i+1]+=2;break;
-		case 27:V[i]='7';V[i+1]+=2;break;
-		case 28:V[i]='8';V[i+1]+=2;break;
-		case 29:V[i]='9';V[i+1]+=2;break;
-		case 30:V[i]='0';V[i+1]+=3;break;
-		case 31:V[i]='1';V[i+1]+=3;break;
-		case 32:V[i]='2';V[i+1]+=3;break;
-		case 33:V[i]='3';V[i+1]+=3;break;
-		case 34:V[i]='4';V[i+1]+=3;break;
-		case 35:V[i]='5';V[i+1]+=3;break;
-		case 36:V[i]='6';V[i+1]+=3;break;
-		case 37:V[i]='7';V[i+1]+=3;break;
-		case 38:V[i]='8';V[i+1]+=3;break;
-		case 39:V[i]='9';V[i+1]+=3;break;
-		case 40:V[i]='0';V[i+1]+=4;break;
-		case 41:V[i]='1';V[i+1]+=4;break;
-		case 42:V[i]='2';V[i+1]+=4;break;
-		case 43:V[i]='3';V[i+1]+=4;break;
-		case 44:V[i]='4';V[i+1]+=4;break;
-		case 45:V[i]='5';V[i+1]+=4;break;
-		case 46:V[i]='6';V[i+1]+=4;break;
-		case 47:V[i]='7';V[i+1]+=4;break;
-		case 48:V[i]='8';V[i+1]+=4;break;
-		case 49:V[i]='9';V[i+1]+=4;break;
-		case 50:V[i]='0';V[i+1]+=5;break;
-		case 51:V[i]='1';V[i+1]+=5;break;
-		case 52:V[i]='2';V[i+1]+=5;break;
-		case 53:V[i]='3';V[i+1]+=5;break;
-		case 54:V[i]='4';V[i+1]+=5;break;
-		case 55:V[i]='5';V[i+1]+=5;break;
-		case 56:V[i]='6';V[i+1]+=5;break;
-		case 57:V[i]='7';V[i+1]+=5;break;
-		case 58:V[i]='8';V[i+1]+=5;break;
-		case 59:V[i]='9';V[i+1]+=5;break;
-		case 60:V[i]='0';V[i+1]+=6;break;
-		case 61:V[i]='1';V[i+1]+=6;break;
-		case 62:V[i]='2';V[i+1]+=6;break;
-		case 63:V[i]='3';V[i+1]+=6;break;
-		case 64:V[i]='4';V[i+1]+=6;break;
-		case 65:V[i]='5';V[i+1]+=6;break;
-		case 66:V[i]='6';V[i+1]+=6;break;
-		case 67:V[i]='7';V[i+1]+=6;break;
-		case 68:V[i]='8';V[i+1]+=6;break;
-		case 69:V[i]='9';V[i+1]+=6;break;
-		case 70:V[i]='0';V[i+1]+=7;break;
-		case 71:V[i]='1';V[i+1]+=7;break;
-		case 72:V[i]='2';V[i+1]+=7;break;
-		case 73:V[i]='3';V[i+1]+=7;break;
-		case 74:V[i]='4';V[i+1]+=7;break;
-		case 75:V[i]='5';V[i+1]+=7;break;
-		case 76:V[i]='6';V[i+1]+=7;break;
-		case 77:V[i]='7';V[i+1]+=7;break;
-		case 78:V[i]='8';V[i+1]+=7;break;
-		case 79:V[i]='9';V[i+1]+=7;break;
-		case 80:V[i]='0';V[i+1]+=8;break;
-		case 81:V[i]='1';V[i+1]+=8;break;
-		case 82:V[i]='2';V[i+1]+=8;break;
-		case 83:V[i]='3';V[i+1]+=8;break;
-		case 84:V[i]='4';V[i+1]+=8;break;
-		case 85:V[i]='5';V[i+1]+=8;break;
-		case 86:V[i]='6';V[i+1]+=8;break;
-		case 87:V[i]='7';V[i+1]+=8;break;
-		case 88:V[i]='8';V[i+1]+=8;break;
-		case 89:V[i]='9';V[i+1]+=8;break;
-		}    
-	}
+        int ith = (int)V[i];
+        V[i] = ith % 10;
+        V[i+1] = i / 10;
+        // TODO: check to see if there is a potential overflow bug here.
+    }
 	if(V[vSize] == 0 || V[vSize] == '0') {
 		V.reserve(vSize);
 		V.resize(vSize);
