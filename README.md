@@ -13,7 +13,6 @@
    This will, however, decrease the understandability
    of the algorithm itself.
 
-4. They can be made to represent negative integer, f-
-   ollowing slight modifications. This is is not done
+4. They can be made to represent negative integer, following slight modifications. This is is not done
    because the primary purpose of this class was to 
    support calculations in RSA encryption.
