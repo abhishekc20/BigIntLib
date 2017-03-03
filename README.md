@@ -1,18 +1,12 @@
-# A few notes about BigIntLib:
+# BigIntLib
 
-1. The BigIntLib was produced primarily for positive
-   integers of arbitrary size.
+A BigInt library for arbitrary-sized unsigned integers in C++.
 
-2. The integers are stored in a vector<char>, so are
-   fairly efficient in terms of memory.
+## A few notes
 
-3. The multiplication and division methods are very
-   fast. Further optimisations can, however, be made,
-   by converting big switch statements into a few
-   case statements followed by a few calculations.
-   This will, however, decrease the understandability
-   of the algorithm itself.
+1. The BigIntLib was produced primarily for positive integers of arbitrary size.
 
-4. They can be made to represent negative integer, following slight modifications. This is is not done
-   because the primary purpose of this class was to 
-   support calculations in RSA encryption.
+2. The integers are stored in a vector<char>, so are fairly efficient in terms of memory.
+
+3. They can be made to represent negative integer, following slight modifications. This is is not done
+because the primary purpose of this class was to support calculations in RSA encryption.
